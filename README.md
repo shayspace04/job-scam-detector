@@ -1,60 +1,53 @@
 # Fake internship-job-scam-detector
+Machine Learning project that detects potentially fraudulent job postings using NLP and Random Forest classification.
+
 As a student actively applying for internships and jobs, I often came across opportunities that seemed suspicious — especially “work from home” roles promising unrealistic salaries or asking candidates to contact recruiters through personal messaging platforms.
-
 This project was built to explore whether machine learning and natural language processing (NLP) could help identify patterns commonly found in fraudulent job postings.
-
 The result is a small prototype system that analyzes job descriptions and estimates the likelihood that a posting may be fraudulent.
 
-The application provides:
+##  Motivation
 
-a fraud risk score
+Students searching for internships often encounter job postings that appear suspicious. These postings may include:
 
-detection of suspicious phrases
+- unrealistic salary promises  
+- vague job descriptions  
+- requests for upfront payments  
+- communication through personal messaging platforms  
+- lack of company verification  
 
-a simple interactive web interface
+This project attempts to analyze job descriptions using **machine learning techniques** to highlight such warning signs.
 
-The goal is not to replace human judgment but to assist students in evaluating potentially risky job opportunities.
+---
+## Tech Stack
 
-Motivation
+This project was implemented using:
 
-Many students apply to internships through online platforms where job authenticity is not always guaranteed. Fake job postings can involve:
+- Python
+- Pandas
+- Scikit-learn
+- TF-IDF Vectorizer
+- Random Forest Classifier
+- Streamlit
 
-unrealistic salary promises
+##  How the System Works
 
-requests for upfront payments
+The system analyzes job descriptions in several stages.
 
-vague company information
+### 1. Text Processing
+Job descriptions are converted into numerical features using **TF-IDF vectorization**, which captures important words and phrases from the text.
 
-communication through personal messaging apps
+### 2. Machine Learning Model
+A **Random Forest classifier** is trained on job posting data to learn patterns that distinguish legitimate listings from fraudulent ones.
 
-This project explores how text-based analysis of job descriptions can help detect such warning signals.
+### 3. Risk Score Generation
+Instead of returning only a binary prediction, the model generates a **fraud risk score** that estimates how suspicious the job posting may be.
 
-How the System Works
+### 4. Suspicious Phrase Detection
+The system also scans for phrases commonly associated with scams such as:
 
-The system processes job descriptions using Natural Language Processing (NLP) techniques.
+- earn money fast
+- work from home
+- no experience needed
+- contact via WhatsApp
 
-1. Data Processing
-
-Job descriptions are cleaned and transformed into numerical features using TF-IDF vectorization.
-
-2. Machine Learning Model
-
-A Random Forest classifier is trained to learn patterns associated with legitimate and fraudulent job postings.
-
-3. Risk Scoring
-
-Instead of only producing a binary prediction, the system generates a fraud risk score that indicates the probability of a job posting being suspicious.
-
-4. Keyword Analysis
-
-In addition to the ML model, the system checks for common scam phrases such as:
-
-“earn money fast”
-
-“work from home”
-
-“no experience required”
-
-“contact on WhatsApp”
-
-This adds a layer of explainability, helping users understand why a job may be flagged.
+This provides a layer of **explainability** so users can understand why a job posting may be flagged.
