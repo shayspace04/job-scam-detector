@@ -43,5 +43,10 @@ if st.button("Analyze Job"):
                 st.warning("⚠️ Suspicious phrases detected:")
                 for word in found:
                    st.write(f"- {word}")
-        else:
+                    numbers = re.findall(r'\d+', job_text)
+            high_salary = any(int(n) > 1000000 for n in numbers)
+
+            if found or high_salary:
+                st.error("⚠️ This job posting may be a SCAM.")
+            else:
             st.success("✅ This job posting appears LEGITIMATE.")
