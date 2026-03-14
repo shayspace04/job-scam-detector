@@ -49,4 +49,4 @@ if st.button("Analyze Job"):
             if found or high_salary:
                 st.error("⚠️ This job posting may be a SCAM.")
             else:
-            st.success("✅ This job posting appears LEGITIMATE.")
+                st.success("✅ This job posting appears LEGITIMATE.")
