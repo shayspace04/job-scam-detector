@@ -40,10 +40,10 @@ if st.button("Analyze Job"):
             found = [word for word in suspicious_keywords if word in job_text.lower()]
 
             if found:
-                st.warning("⚠️ Suspicious phrases detected:")
-                for word in found:
+                 st.warning("⚠️ Suspicious phrases detected:")
+                 for word in found:
                    st.write(f"- {word}")
-                    numbers = re.findall(r'\d+', job_text)
+            numbers = re.findall(r'\d+', job_text)
             high_salary = any(int(n) > 1000000 for n in numbers)
 
             if found or high_salary:
